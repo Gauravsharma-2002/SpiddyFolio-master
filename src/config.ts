@@ -9,7 +9,7 @@ import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
   title: "spiderMonk",
-  subtitle: "Per aspera ad astra",
+  subtitle: "वृद्धौ शिक्षस्व",
   lang: "en-HI",
   themeColor: {
     hue: 250,
@@ -73,7 +73,7 @@ export const profileConfig: ProfileConfig = {
     {
       name: "Resume Drive",
       icon: "line-md:file-document-minus",
-      url: "https://memos.cubeyond.net", // edit this with  drive link of resume
+      url: "https://drive.google.com/file/d/1MGxT5GwieXYq40fI9z57gyORgdehfySJ/view", // edit this with  drive link of resume
     },
   ],
 };
