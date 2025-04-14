@@ -1,18 +1,32 @@
 ---
 title: "Rolling over the uneven path of Dynamic Programming"
-published: 2025-03-09
-updated: 2025-04-03
+published: 2024-03-02
+updated: 2024-04-03
 description: "Checking out the patterns of questions involved in Dynamic programming"
 tags: ["DataStructures", "Notes"]
 category: "DataStructures"
 draft: false
 ---
 
-# 前言
+# Patterns to master Dynamic Programming
 
-为了提升开发水平和工程能力，同时也是为了深入学习 C 语言……我再次拾起了这项艰巨却让我无比向往的项目<s>_（种子早在两年前就种下了，现在才开始生长，请叫我摆烂 Master）_</s>。
+<b>Dynamic Programming {DP}</b> is arguably the most difficult topic for coding interviews.
 
-话说今年（确切的说应该是截至九月中旬）我主要功夫都会倾注在学业中，这意味着，我能投身于技术探索的时间将变得稀缺（这怎么行，我怎么能原地踏步！所以，即便当前以学业为主，我也打算在这段时间顺便积淀一下自己的硬实力。待到回归之日，又是一个更哇塞的自己～）……
+<!-- <s>_（种子早在两年前就种下了，现在才开始生长，请叫我摆烂 Master）_</s>。 -->
+
+But, like any other topic, the fastest way to learn it is by understanding different patterns that can help you solve a wide variety of problems.
+
+<center>
+  <img src="dp.svg" />
+</center>
+
+In this article, I'll walk through <b>20 patterns </b> that will make learning DP much easier.
+
+Here i gonna share when to use each pattern and provide links to Leetcode Problems to practice and learn effectively.
+
+I had Listed them from begginer friendly aka easy to master friendly aka hard and also linked resources to learn each pattern.
+
+<!-- 话说今年（确切的说应该是截至九月中旬）我主要功夫都会倾注在学业中，这意味着，我能投身于技术探索的时间将变得稀缺（这怎么行，我怎么能原地踏步！所以，即便当前以学业为主，我也打算在这段时间顺便积淀一下自己的硬实力。待到回归之日，又是一个更哇塞的自己～）……
 
 借口？或许吧……刚开学前两周经受了一个「小小的」挫折，让我有「一点点」崩。唉，说多了都是泪……没死就好 LOL
 
@@ -20,15 +34,417 @@ draft: false
 
 记录一下，我是从 _03/09/2025_ 正式开始的，<s>虽然还没写下任何一行代码，但准确来说就是这个点……</s>只是想在最后看看什么时候结束，届时可能会小小的感慨一下下吧。
 
-::github{repo="CuB3y0nd/Exordium"}
+::github{repo="CuB3y0nd/Exordium"} -->
 
 <br />
 
-# 计算机启动过程
+# 1. Fibonacci Sequence
 
-## 实模式下的 1MB 内存布局
+<!-- ## 实模式下的 1MB 内存布局 -->
 
-为何是 1MB？这得追溯到 Intel 8086 的时代了。那时候 Intel 8086 只有 20 根地址总线，故其只能访问 $$2^{20} =1048576$$ 字节，也就是 1MB 的内存空间，而这 1MB 又被拆为多个部分分别用于不同的用途。
+Fibonacci Sequence pattern is useful when the solution to a problem depends on the solution of smaller instances of the same problem.
+
+There is a clear recursive relationship, mostly similiar to the standard Fibonacci Squence F(n) = F(n-1) + F(n-2);
+
+## LeetCode Problems:
+
+1. LeetCode 509: Fibonacci Number
+   (https://leetcode.com/problems/fibonacci-number/description/)
+2. LeetCode 70: climbing Stairs
+   (https://leetcode.com/problems/climbing-stairs/description/)
+3. LeetCode 70: Min cost Climbing Stairs
+   (https://leetcode.com/problems/min-cost-climbing-stairs/description/)
+   </br>
+
+# 2. Kadane's Algorithm
+
+<!-- ## 实模式下的 1MB 内存布局 -->
+
+Kadane's Algorithm is primarily used for solving the Maximum Subarray Problem and its variations where the problem asks to optimize a contiguous subarray within a one-dimensional numeric array
+
+## LeetCode Problems:
+
+1. LeetCode 509: Maximum sum circular subarray
+   (https://leetcode.com/problems/maximum-sum-circular-subarray/description/)
+2. LeetCode 70: Maximum subarray
+   (https://leetcode.com/problems/maximum-subarray/description/)
+3. LeetCode 70: Maximum product subarray
+   (https://leetcode.com/problems/maximum-product-subarray/description/)
+   </br>
+
+# 3. 0/1 Knapsack
+
+> [!TIP]
+>
+> 1. you have a set of items array and this item may have one or more property
+> 2. you need to select a subset of these items
+> 3. there is a constant constraint called weight or cost
+> 4. you have to maximise or minimise the total value of selected subset items
+> 5. each item can either can be taken or chosen or not taken or not chosen(0/1)
+
+<!-- ## 实模式下的 1MB 内存布局 -->
+
+## LeetCode Problems:
+
+1. coding ninhjas: SubsetSum equal to k
+   (https://www.naukri.com/code360/problems/subset-sum-equal-to-k_1550954)
+2. LeetCode 70: partition Equal Subset Sum
+   (https://leetcode.com/problems/partition-equal-subset-sum/description/)
+3. LeetCode 70: Target Sum
+   (https://leetcode.com/problems/target-sum/description/)
+4. LeetCode 1049 : Last stone Weight II
+   (https://leetcode.com/problems/last-stone-weight-ii/description/)
+
+   </br>
+
+# 4. Unbounded Knapsack
+
+<!-- ## 实模式下的 1MB 内存布局 -->
+
+> [!TIP]
+> use unbounded knapsack patten when
+>
+> 1. you have a set of items with or without its property like weight[] and value[]
+> 2. you need to select the items to maximize total value.
+> 3. there is a constraint called as cost or weight or something
+> 4. you can select single item multiple number of times( recall that in 0/1 you can only select it or not select it )
+> 5. and it is given that supply of each item is infinite
+
+## LeetCode Problems:
+
+1. LeetCode 518: Coin Change 2
+   (https://leetcode.com/problems/coin-change-ii/description/)
+2. LeetCode 322: Coin Change
+   (https://leetcode.com/problems/coin-change/description/)
+3. LeetCode 279: Perfect Squares
+   (https://leetcode.com/problems/maximum-product-subarray/description/)
+   </br>
+
+# 5. Longest Common Subsequence(LCS)\*
+
+<!-- ## 实模式下的 1MB 内存布局 -->
+
+> [!Tip]
+> use this pattern when you have given two sequence or given only one sequence and other might get dervied from this given sequence
+> most important this pattern mostly includes the operation of 2 sequences
+>
+> 1. use this when you need to determine a sequence from the given strings
+> 2. order of elements of strings/array would not change in the problems of this pattern and answer would contain the solution related to the sequence
+
+## Problems:
+
+1. LeetCode 1143: Longest Common Subsequence
+   (https://leetcode.com/problems/longest-common-subsequence/description/)
+2. LeetCode 583: Delete Operation for two strings
+   (https://leetcode.com/problems/delete-operation-for-two-strings/description/)
+3. LeetCode 1092: Shortest Common superSequence
+   (https://leetcode.com/problems/shortest-common-supersequence/description/)
+   </br>
+
+# 6. Longest Increasing Subsequence
+
+use longest increasing subsequence in the problems that requires the finding of the longest sequence of elements in sequence where the elements are in increasing order.
+
+## LeetCode Problems:
+
+1. LeetCode 300: Longest Increasing Subsequence
+   (https://leetcode.com/problems/longest-increasing-subsequence/description/)
+2. LeetCode 673: Number of Longest Increasing Subsequence
+   (https://leetcode.com/problems/number-of-longest-increasing-subsequence/description/)
+3. leetCode 354: Russian Doll Envelopes
+   (https://leetcode.com/problems/russian-doll-envelopes/description/)
+   </br>
+
+# 7. palindromic Subsequence
+
+> [!Tip]
+> a variant of longest common subsequence
+>
+> 1. in this type of problem only one string is given and another string is the same string in reversed order and the longest common subsequence is the plaindromic subsequence
+> 2. Remember the property of the palindrome
+
+## LeetCode Problems:
+
+1. LeetCode 516: Longest Palindromic Subsequence
+   (https://leetcode.com/problems/longest-palindromic-subsequence/description/)
+2. LeetCode 647: Palindromic Substrings
+   (https://leetcode.com/problems/palindromic-substrings/description/)
+3. LeetCode 1312: Minimum Insertion Steps to Make a String Palindrome
+   (https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/description/)
+   </br>
+
+# 8. Edit Distance
+
+this is variation of the problem done above this constitute some of the operation to be done on the given string which include deletion, insertion swapping or replacement
+
+> [!Tip]
+>
+> 1. use this pattern when you feel like you have to transform the given string to obtain the answer
+> 2. mostly it is asked to tranform the given string into another string and count the number of operations required to do so
+
+## LeetCode Problems:
+
+1. LeetCode 72: Edit Distance
+   (https://leetcode.com/problems/edit-distance/description/)
+2. LeetCode 583: Delete Operation for Two Strings
+   (https://leetcode.com/problems/delete-operation-for-two-strings/description/)
+3. LeetCode 712: Minimum ASCII Delete Sum for Two Strings
+   (https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/description/)
+   </br>
+
+# 9. subset sum
+
+<!-- ## 实模式下的 1MB 内存布局 -->
+
+in this pattern it is asked to check or find if the given array could constitute the required sum or not and also to find that subsequence or subset
+
+> [!Tip]
+>
+> 1. this is variation of 0/1 knapsack problem with only item having one property of weight[] given
+> 2. second given is the constraint or the cost or the required sum which the subsets have to achieve
+
+## LeetCode Problems:
+
+1. LeetCode 416: Partition Equal Subset Sum
+   (https://leetcode.com/problems/partition-equal-subset-sum/description/)
+2. LeetCode 494: Target Sum
+   (https://leetcode.com/problems/target-sum/description/)
+3. LeetCode 698: Partition to K Equal Sum Subsets
+   (https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/)
+   </br>
+
+# 10. String partition
+
+The String Partition pattern is used to solve problems that involve partitioning a string into smaller substrings that satisfy certain conditions.
+
+It’s useful when:
+
+1. You're working with problems involving strings or sequences.
+
+2. The problem requires splitting the string into substrings or subsequences.
+
+3. You need to optimize some property over these partitions (e.g., minimize cost, maximize value).
+
+4. The solution to the overall problem can be built from solutions to subproblems on smaller substrings.
+
+There's a need to consider different ways of partitioning the string.
+
+## LeetCode Problems:
+
+1. LeetCode 139: Word Break
+   (https://leetcode.com/problems/word-break/description/)
+2. LeetCode 132. Palindrome Partitioning II
+   (https://leetcode.com/problems/palindrome-partitioning-ii/description/)
+3. LeetCode 472: Concatenated Words
+   (https://leetcode.com/problems/concatenated-words/description/)
+
+   </br>
+
+# 11. Catalan Numbers
+
+<!-- ## 实模式下的 1MB 内存布局 -->
+
+The Catalan Number pattern is used to solve combinatorial problems that can be decomposed into smaller, similar subproblems.
+
+> some of the use-case of this problem of this pattern includes:
+>
+> 1. counting the number of <b>vlaid parentheses</b> expression of a given length
+> 2. counting number of distinct binary search tree that can be formed with n nodes.
+> 3. Counting the number of ways to triangulate a polygon with n+2 sides.
+
+## LeetCode Problems:
+
+1. LeetCode 22: Generate Parentheses
+   (https://leetcode.com/problems/generate-parentheses/description/)
+2. LeetCode 96: Unique Binary Search Trees
+   (https://leetcode.com/problems/unique-binary-search-trees/description/)
+   </br>
+
+# 12. Matrix chain multiplication
+
+<!-- ## 实模式下的 1MB 内存布局 -->
+
+Belive me this one is the most confusing one pattern and requires alot to get absorbed
+use this pattern in the problems that involves determining optimal order of operation to minimize the cost of performing a series of operations.
+
+it is based on standard optimisation problem: Matrix Chain Multiplication
+
+> use this when
+>
+> 1.  if dealing with a sequence of elements that can be combined pairwise.
+> 2.  the cost of combining elements depends on the order of combination.
+> 3.  it is needed to find the optimal way to combine the elements.
+> 4.  the problem invlolves minimizing/maximizing the cost of operations of combining the elements.
+
+## Problems:
+
+1. Matrix Chain Multiplication
+   (https://www.naukri.com/code360/problems/matrix-chain-multiplication_975344)
+2. LeetCode 1000: Minimum Cost to Merge Stones
+   (https://leetcode.com/problems/minimum-cost-to-merge-stones/description/)
+3. LeetCode 1039. Minimum Score Triangulation of Polygon
+   (https://leetcode.com/problems/minimum-score-triangulation-of-polygon/description/)
+4. LeetCode 312. Burst Balloons
+   (https://leetcode.com/problems/burst-balloons/description/)
+   </br>
+
+# 13. Count Distinct Ways
+
+use this pattern when:
+
+> 1.  You need to count the number of different ways to achieve a certain goal or reach a particular state
+> 2.  The problem involves making a series of choices or steps to reach a target.
+> 3.  There are multiple valid paths or combinations to reach the solution.
+> 4.  The problem can be broken down into smaller subproblems with overlapping solutions.
+> 5.  You're dealing with combinatorial problems that ask "in how many ways" can something be done.
+
+## Problems:
+
+1. LeetCode 91. Decode Ways
+   (https://leetcode.com/problems/decode-ways/description/)
+2. LeetCode 2266. Count Number of Texts
+   (https://leetcode.com/problems/count-number-of-texts/description/)
+
+   </br>
+
+# 14. DP on Grids
+
+The DP on Grids pattern is used to solve problems that involve navigating or optimizing paths within a grid (2D array).
+
+For these problems, you need to consider multiple directions of movement (e.g., right, down, diagonal) and solution at each cell depends on the solutions of neighboring cells.
+
+## Problems:
+
+1. LeetCode 64. Minimum Path Sum
+   (https://leetcode.com/problems/minimum-path-sum/description/)
+2. LeetCode 62. Unique Paths
+   (https://leetcode.com/problems/unique-paths/description/)
+3. LeetCode 329. Longest Increasing Path in a Matrix
+   (https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/)
+
+   </br>
+
+# 15. DP on Trees
+
+The DP on Trees pattern is useful when:
+
+> 1.  You're working with tree-structured data represented by nodes and edges.
+> 2.  The problem can be broken down into solutions of subproblems that are themselves tree problems.
+> 3.  The problem requires making decisions at each node that affect its children or parent.
+
+You need to compute values for nodes based on their children or ancestors.
+
+## Problems:
+
+1. LeetCode 337. House Robber III
+   (https://leetcode.com/problems/house-robber-iii/description/)
+2. LeetCode 124: Binary Tree Maximum Path Sum
+   (https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
+3. LeetCode 968. Binary Tree Cameras
+   (https://leetcode.com/problems/binary-tree-cameras/description/)
+
+   </br>
+
+# 16. Dp on Graphs
+
+The DP on Graphs pattern is useful when:
+
+> 1.  You're dealing with problems involving graph structures.
+> 2.  The problem requires finding optimal paths, longest paths, cycles, or other optimized properties on graphs.
+> 3.  You need to compute values for nodes or edges based on their neighbors or connected components.
+
+The problem involves traversing a graph while maintaining some state.
+
+## Problems:
+
+1. LeetCode 787: Cheapest Flights Within K Stops
+   (https://leetcode.com/problems/cheapest-flights-within-k-stops/description/)
+2. LeetCode 1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance
+   (https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/description/)
+
+   </br>
+
+# 17. Digit Dp
+
+The Digit DP Pattern is useful when:
+
+> 1.  You're dealing with problems involving counting or summing over a range of numbers.
+> 2.  The problem requires considering the digits of numbers individually.
+> 3.  You need to find patterns or properties related to the digits of numbers within a range.
+> 4.  The range of numbers is large (often up to 10^18 or more), making brute force approaches infeasible.
+> 5.  The problem involves constraints on the digits.
+
+## Problems:
+
+1. LeetCode 357: Count Numbers with Unique Digits
+   (https://leetcode.com/problems/count-numbers-with-unique-digits/description/)
+2. LeetCode 233: Number of Digit One
+   (https://leetcode.com/problems/number-of-digit-one/description/)
+3. LeetCode 902. Numbers At Most N Given Digit Set
+   (https://leetcode.com/problems/numbers-at-most-n-given-digit-set/description/)
+
+   </br>
+
+# 18. Bitmasking Dp
+
+The Bitmasking DP pattern is used to solve problems that involve a large number of states or combinations, where each state can be efficiently represented using bits in an integer.
+
+> It’s particularly useful when:
+
+> 1.  You're dealing with problems involving subsets or combinations of elements.
+> 2.  The total number of elements is relatively small (typically <= 20-30).
+> 3.  You need to efficiently represent and manipulate sets of elements.
+> 4.  The problem involves making decisions for each element (include/exclude) or tracking visited/unvisited states.
+> 5.  You want to optimize space usage in DP solutions.
+
+## Problems:
+
+1. LeetCode 2305. Fair Distribution of Cookies
+   (https://leetcode.com/problems/fair-distribution-of-cookies/description/)
+2. LeetCode 847. Shortest Path Visiting All Nodes
+   (https://leetcode.com/problems/shortest-path-visiting-all-nodes/description/)
+
+   </br>
+
+# 19. Probability DP
+
+This pattern is useful when:
+
+> 1.  You're dealing with problems involving probability calculations.
+> 2.  The probability of a state depends on the probabilities of previous states.
+> 3.  You need to calculate the expected value of an outcome.
+> 4.  The problem involves random processes or games of chance.
+
+## Problems:
+
+1. LeetCode 688. Knight Probability in Chessboard
+   (https://leetcode.com/problems/knight-probability-in-chessboard/description/)
+2. LeetCode 837. New 21 Game
+   (https://leetcode.com/problems/new-21-game/description/)
+3. LeetCode 808. Soup Servings
+   (https://leetcode.com/problems/soup-servings/description/)
+
+   </br>
+
+# 20. State Machine DP
+
+The State Machine DP Pattern is useful when when:
+
+> 1.  The problem can be modeled as a series of states and transitions between these states.
+> 2.  There are clear rules for moving from one state to another.
+> 3.  The optimal solution depends on making the best sequence of state transitions.
+> 4.  The problem involves making decisions that affect future states.
+> 5.  There's a finite number of possible states, and each state can be clearly defined.
+
+## Problems:
+
+1. LeetCode 309. Best Time to Buy and Sell Stock with Cooldown
+   (https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/)
+2. LeetCode Best Time to Buy and Sell Stock III
+   (https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
+   </br>
+
+<!-- 为何是 1MB？这得追溯到 Intel 8086 的时代了。那时候 Intel 8086 只有 20 根地址总线，故其只能访问 $$2^{20} =1048576$$ 字节，也就是 1MB 的内存空间，而这 1MB 又被拆为多个部分分别用于不同的用途。
 
 实模式下的内存布局如下：
 
@@ -421,4 +837,4 @@ DESC_LIMIT_VIDEO2 equ 0000_000000000000000b
 
 ```asm wrap=false showLineNumbers=false
 DESC_LIMIT_VIDEO2 equ 0000_0000000000001011b
-```
+``` -->
