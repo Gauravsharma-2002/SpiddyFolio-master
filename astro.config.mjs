@@ -6,14 +6,14 @@ import Compress from "astro-compress";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
-import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
-import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
+import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
+import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeComponents from "rehype-components";/* Render the custom directive content */
+import rehypeComponents from "rehype-components"; /* Render the custom directive content */
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
-import rehypeExternalLinks from 'rehype-external-links';
-import remarkDirective from "remark-directive";/* Handle directives */
+import rehypeExternalLinks from "rehype-external-links";
+import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
@@ -29,21 +29,22 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://assembly.rip/",
+  site: "https://gaurav-sharma-digital-identity.vercel.app/",
   base: "/",
   trailingSlash: "always",
-  
+
   integrations: [
     expressiveCode({
       themes: expressiveCodeConfig.themes,
       styleOverrides: {
-        codeFontFamily: '"JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
+        codeFontFamily:
+          '"JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
       },
       defaultProps: {
         wrap: true,
         overridesByLang: {
-          'shellsession': {
-            showLineNumbers: false
+          shellsession: {
+            showLineNumbers: false,
           },
         },
         showLineNumbers: true,
@@ -54,11 +55,9 @@ export default defineConfig({
         pluginLanguageBadge(),
       ],
     }),
-    tailwind(
-      {
-        nesting: true,
-      }
-    ),
+    tailwind({
+      nesting: true,
+    }),
     swup({
       theme: false,
       animationClass: "transition-swup-", // see https://swup.js.org/options/#animationselector
@@ -85,7 +84,7 @@ export default defineConfig({
     sitemap(),
     Compress({
       HTML: {
-        'html-minifier-terser': {
+        "html-minifier-terser": {
           minifyCSS: false, // Explicitly set to avoid interfering with Expressive Code.
         },
       },
@@ -94,7 +93,7 @@ export default defineConfig({
       Action: {
         Passed: async () => true, // https://github.com/PlayForm/Compress/issues/376
       },
-    })
+    }),
   ],
 
   markdown: {
@@ -149,8 +148,8 @@ export default defineConfig({
       [
         rehypeExternalLinks,
         {
-          target: '_blank',
-          rel: 'noopener noreferrer'
+          target: "_blank",
+          rel: "noopener noreferrer",
         },
       ],
     ],
