@@ -6,7 +6,7 @@
 - ROAL: softWareEngineer
 - TEAM: NO TEAM YET :(
 - E-Mail: `sharmagaurav -at- gmail -dot- com`
-- Landing page: [My personal landing page.](https://cubeyond.net/)
+- Landing page: [My personal landing page.](https://gaurav-sharma-digital-identity.vercel.app/)
   <!-- - Personality: INTJ-A 5w4 Tritype 513 -->
     <!-- - GPG Key: <a href="/public.key" download>My GPG Public Key.</a> -->
     <!-- - Memos: [My life moments.](https://memos.cubeyond.net/) -->
